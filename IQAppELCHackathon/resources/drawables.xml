@@ -1,0 +1,18 @@
+<drawables>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="BreastCancerRibbon" filename="BreastCancerRibbon.png" />
+    <bitmap id="BreastCancerRibbonSmall" filename="BreastCancerRibbonSmall.png" />
+    <bitmap id="BlueVennLogo" filename="BlueVennLogo.png" />
+    <bitmap id="EmojiHappy" filename="EmojiHappy.png" />
+    <bitmap id="EmojiSad" filename="EmojiSad.png" />
+    <bitmap id="EmojiLike" filename="EmojiLike.png" />
+    <bitmap id="Advice" filename="Advice.png" />
+    <bitmap id="HeartOn" filename="HeartOn.png" />
+    <bitmap id="HeartOff" filename="HeartOff.png" />
+    <bitmap id="StepsOn" filename="StepsOn.png" />
+    <bitmap id="StepsOff" filename="StepsOff.png" />
+    <bitmap id="TempOn" filename="TempOn.png" />
+    <bitmap id="TempOff" filename="TempOff.png" />
+    <bitmap id="Sp02On" filename="Sp02On.png" />
+    <bitmap id="Sp02Off" filename="Sp02Off.png" />
+</drawables>
