@@ -1,0 +1,57 @@
+﻿<div class="horiz-split-container" data-bind="droppable2, application:$root.application">
+
+	<div class="flex-split-cell editor-container" data-bind="flexSplitter:{ resizeSide:'bottom', size:300, minSize:100, minRemaining:100, noToggle:true, onResize:onContainerResized }">
+		<div class="panel-container clearfix">
+			<div class="input-panel left half-width full-height">
+				<div>
+					<label data-bind="localeText: { text:'Table' }"></label>
+					<object-picker params="objectFilter: tablePickerObjectFilter, selectedObject:table, application:$root.application" data-automation-id="external-data-table-picker" />
+				</div>
+			</div>
+			<div class="input-panel left half-width full-height">
+				<div>
+					<label data-bind="localeText: { text:'ExternalResource' }"></label>
+					<object-picker params="objectFilter: externalResourcePickerObjectFilter, selectedObject:externalResource, application:$root.application, getFlatResults:true" data-automation-id="external-data-resource-picker" />
+				</div>
+				<div>
+					<label data-bind="localeText: { text:'ExternalSource' }"></label>
+					<select data-bind="select3: { width: 'style', containerCssClass: 'indigo-select2-container', options: externalSources, value: selectedSource }" class="select-block" data-automation-id="external-data-source-picker" />
+				</div>
+			</div>
+		</div>
+
+		<!-- ko if:fieldMappings -->
+		<div class="field-mappings">
+			<table>
+				<thead>
+					<tr><th class="target-field" data-bind="localeText: { text:'TargetFields' }"></th><th class="source-field" data-bind="localeText: { text:'ExternalSourceFields' }"></th></tr>
+				</thead>
+				<tbody>
+					<!-- ko foreach:fieldMappings -->
+					<tr>
+						<td class="target-field" data-bind="css:{'target-value':isTargetValue}">
+							<!-- ko ifnot:isTargetValue -->
+							<object-picker params="objectFilter: targetFieldPickerObjectFilter, selectedObject:targetFieldId, disable:true, application:$root.application" data-automation-id="" />
+							<!-- /ko -->
+							<!-- ko if:isTargetValue -->
+							<span data-bind="localeText: { text:'Value', suffix:':' }"></span>
+							<!-- /ko -->
+						</td>
+						<td class="source-field">
+							<select data-bind="select3: { width: 'style', containerCssClass: 'indigo-select2-container', options: availableSourceFields, optionsText: 'displayName', value: selectedSourceField }" class="select-block" />
+						</td>
+					</tr>
+					<!-- /ko -->
+				</tbody>
+			</table>
+		</div>
+		<!-- /ko -->
+
+	</div>
+	<div class='bv-split-bar'></div>
+	<div class="dataresult-grid flex-split-cell">
+		<div data-bind="externalDataGrid: $data,
+						application:$root.application" class="js-grid"></div>
+	</div>
+
+</div>
